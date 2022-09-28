@@ -1,0 +1,102 @@
+<div class="finding-ride">
+  <!-- <div class="map">
+    <div class="map-wrapper">
+      <div #map id="map"></div>
+    </div>
+  </div> -->
+  <div class="greetings">Good Morning, Sakhwath</div>
+    <div class="where-to">Where To?</div>
+    <div>
+    </div>
+
+    <div class="history">
+      <a>
+        Recent Location History
+        <span>Current location address here.</span>
+        <img src="../../../assets/arrow-right.png" />
+      </a>
+      <a>
+        Recent Location History
+        <span>Current location address here.</span>
+        <img src="../../../assets/arrow-right.png" />
+      </a>
+    </div>
+  <div class="ride-info">
+    <div class="select-ride">Choose a ride, or select more</div>
+    <ion-modal [isOpen]="isHidden">
+      <ng-template>
+      <div class="rides">
+        <div class="rides-item">
+          <div class="rides-img"><img src="../../../assets/carX.png" /></div>
+          <div class="rides-title" (click)="hideData()">
+            {{locationObj.rideFareModelList[2].rideName}}
+            <span>5.25pm Dropoff</span>
+          </div>
+          <div class="rides-person">3 Left</div>
+          <div class="rides-amount">BDT {{locationObj.rideFareModelList[2].totalFare}}</div>
+        </div>
+        <div class="rides-item select">
+          <div class="rides-img">
+            <img src="../../../assets/carPremier.png" />
+          </div>
+          <div class="rides-title">
+            {{locationObj.rideFareModelList[0].rideName}}
+            <span>5.25pm Dropoff</span>
+          </div>
+          <div class="rides-person">3 Left</div>
+          <div class="rides-amount">BDT {{locationObj.rideFareModelList[0].totalFare}}</div>
+        </div>
+        <div class="rides-item">
+          <div class="rides-img">
+            <img src="../../../assets/carCompeer.png" />
+          </div>
+          <div class="rides-title">
+            {{locationObj.rideFareModelList[1].rideName}}
+            <span>5.25pm Dropoff</span>
+          </div>
+          <div class="rides-person">3 Left</div>
+          <div class="rides-amount">BDT {{locationObj.rideFareModelList[1].totalFare}}</div>
+        </div>
+        <div class="user-section">
+          <div class="user">
+            <div class="user-item select">
+              <img src="../../../assets/user1.png" />
+            </div>
+            <div class="user-item"><img src="../../../assets/user1.png" /></div>
+            <div class="user-item"><img src="../../../assets/user1.png" /></div>
+            <div class="user-item"><img src="../../../assets/user1.png" /></div>
+          </div>
+          <div class="payment-mode">
+            <span
+              >Personal <br />
+              Cash</span
+            >
+            <span class="taka">&#2547;</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </ion-modal>
+   
+    <div class="ride-type">
+      <div>
+        <a class="active" (click)="selectVehicleType('Moto')">
+          <img src="../../../assets/confirmTrip/bike.png" /><br />
+          <span>Moto</span>
+          </a>
+        <a class="" (click)="selectVehicleType('Car')" ><img src="../../../assets/confirmTrip/car.png" /><br />
+          <span>CAR</span></a>
+        <a class="" (click)="selectVehicleType('Cng')"><img src="../../../assets/confirmTrip/cng.png" /><br />
+          <span>CNG</span></a>
+        <a class="" (click)="selectVehicleType('Micro')"><img src="../../../assets/confirmTrip/micro.png" /><br/>
+          <span>MICRO</span></a>
+      </div>
+      <div class="confirm-btn">
+        <div class="car-timer"><img src="../../../assets/car_timer.png" /></div>
+        <div class="btn">
+          <button (click)="confirmTrip()">Confirm Moto</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

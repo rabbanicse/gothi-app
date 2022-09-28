@@ -1,0 +1,54 @@
+<form class="containerForm" #registerForm="ngForm" (ngSubmit)="registerUser()">
+  <div class="container register">
+    <div>
+      <img src="../../assets/avatar.jpg" alt="" />
+    </div>
+    <div class="form-title">Enter Your Basic Info</div>
+    <div class="list">
+      <div class="floating-label-group">
+        <input
+          type="text"
+          id="fullname"
+          class="form-control"
+          #firstName="ngModel"
+          [(ngModel)]="registerObject.firstName"
+          name="firstName"
+          autocomplete="off"
+          autofocus
+          required
+        />
+        <label class="floating-label">First Name</label>
+      </div>
+      <div class="floating-label-group">
+        <input
+          type="text"
+          id="nickname"
+          #lastName="ngModel"
+          [(ngModel)]="registerObject.lastName"
+          name="lastName"
+          autocomplete="off"
+          class="form-control"
+          autocomplete="off"
+          autofocus
+          required
+        />
+        <label class="floating-label">Last Name</label>
+      </div>
+      <div class="list">
+        <div class="gender" >
+          <span >Select Gender* &nbsp;&nbsp; </span>
+          <input  type="radio" name="Male" value="Male" (change)="onChanged($event)" [(ngModel)]="registerObject.gender"><label >Male</label>
+          <input type="radio" name="Female" value="Female" (change)="onChanged($event)" [(ngModel)]="registerObject.gender"> <label>Female</label>
+          <input type="radio" name="Others" value="Others" (change)="onChanged($event)" [(ngModel)]="registerObject.gender"><label>Others</label>
+        </div>
+        <div class="floating-label-group">
+          <input type="password" class="form-control" autocomplete="off" autofocus required #lastName="ngModel"
+          [(ngModel)]="registerObject.password"
+          name="password"/>
+          <label class="floating-label">Password</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit">Go ahead</button>
+  </div>
+</form>

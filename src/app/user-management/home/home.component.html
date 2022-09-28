@@ -1,0 +1,302 @@
+<div class="finding-ride">
+  <div class="map">
+    <ion-content [fullscreen]="true">
+      <div class="map-wrapper">
+        <div #map id="map"></div>
+      </div>
+    </ion-content>
+  </div>
+
+  <div class="ride-info">
+    <div class="greetings">Good Morning, Sakhwath</div>
+    <div class="where-to" (click)="modalShow()">Where To?</div>
+    <div></div>
+
+    <div class="history">
+      <a>
+        Recent Location History
+        <span>Current location address here.</span>
+        <img src="../../../assets/arrow-right.png" />
+      </a>
+      <a>
+        Recent Location History
+        <span>Current location address here.</span>
+        <img src="../../../assets/arrow-right.png" />
+      </a>
+    </div>
+    <!-- <div class="">
+        <app-confirm-trip [isHidden] = "false" [driverList]="driverList"></app-confirm-trip>
+    </div> -->
+
+    <div class="rides" *ngIf="isShowList">
+      <div class="rides-item">
+        <div class="rides-img"><img src="../../../assets/carX.png" /></div>
+        <div class="rides-title" (click)="hideData()">
+          
+          <span>5.25pm Dropoff</span>
+        </div>
+        <div class="rides-person">3 Left</div>
+        <div class="rides-amount">
+          BDT 
+        </div>
+      </div>
+      <div class="rides-item select">
+        <div class="rides-img">
+          <img src="../../../assets/carPremier.png" />
+        </div>
+        <div class="rides-title">
+          
+          <span>5.25pm Dropoff</span>
+        </div>
+        <div class="rides-person">3 Left</div>
+        <div class="rides-amount">
+          BDT 
+        </div>
+      </div>
+      <div class="rides-item">
+        <div class="rides-img">
+          <img src="../../../assets/carCompeer.png" />
+        </div>
+        <div class="rides-title">
+          
+          <span>5.25pm Dropoff</span>
+        </div>
+        <div class="rides-person">3 Left</div>
+        <div class="rides-amount">
+          BDT 
+        </div>
+      </div>
+      <div class="user-section">
+        <div class="user">
+          <div class="user-item select">
+            <img src="../../../assets/user1.png" />
+          </div>
+          <div class="user-item"><img src="../../../assets/user1.png" /></div>
+          <div class="user-item"><img src="../../../assets/user1.png" /></div>
+          <div class="user-item"><img src="../../../assets/user1.png" /></div>
+        </div>
+        <div class="payment-mode">
+          <span
+            >Personal <br />
+            Cash</span
+          >
+          <span class="taka">&#2547;</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="ride-type">
+      <div>
+        <a class="active" (click)="selectVehicleType('Bike')">
+          <img src="../../../assets/confirmTrip/bike.png" /><br />
+          <span>Moto</span>
+        </a>
+        <a class="" (click)="selectVehicleType('Car')"
+          ><img src="../../../assets/confirmTrip/car.png" /><br />
+          <span>CAR</span></a
+        >
+        <a class="" (click)="selectVehicleType('Cng')"
+          ><img src="../../../assets/confirmTrip/cng.png" /><br />
+          <span>CNG</span></a
+        >
+        <a class="" (click)="selectVehicleType('Micro')"
+          ><img src="../../../assets/confirmTrip/micro.png" /><br />
+          <span>MICRO</span></a
+        >
+      </div>
+
+      <div class="confirm-btn" *ngIf="isShowList">
+        <div class="car-timer"><img src="../../../assets/car_timer.png" /></div>
+        <div class="btn">
+          <button (click)="confirmTrip()">Confirm Moto</button>
+        </div>
+      </div>
+
+
+    </div>
+
+    
+
+  </div>
+</div>
+
+<ion-modal
+  [isOpen]="isExpand"
+  [initialBreakpoint]="0.40"
+  [breakpoints]="[0, 0.25, 0.5, 0.75]"
+>
+  <ng-template>
+    <div class="finding-ride">
+      <div >
+		<div class="where-to">
+			<input type="text" placeholder="From" [(ngModel)]="sourceLocation" />
+			<input
+			  type="text"
+			  placeholder="Where To?"
+			  [(ngModel)]="destinationLocation.input"
+        (ngModelChange)="updateSearchResults()" 
+			/>
+      <ion-list [hidden]="autocompleteItems.length == 0">
+        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+          {{ item.description }}
+        </ion-item>
+      </ion-list>
+			<ion-button (click)="calculateAndDisplayRoute()"> Search </ion-button>
+		  </div>
+        <div class="history">
+          <a href="#">
+            Recent Location History
+            <span>Current location address here.</span>
+            <img src="../../../assets/arrow-right.png" />
+          </a>
+          <a href="#">
+            Recent Location History
+            <span>Current location address here.</span>
+            <img src="../../../assets/arrow-right.png" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ion-modal>
+
+
+
+<!-- <ion-content class="ion-padding">
+  <ion-button id="open-modal" expand="block">Open Sheet Modal</ion-button>
+
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.45" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <div >
+        <div >
+      <div >
+        <input type="text" placeholder="From" [(ngModel)]="sourceLocation" />
+        <input
+          type="text"
+          placeholder="Where To?"
+          [(ngModel)]="destinationLocation.input"
+          (ngModelChange)="updateSearchResults()" 
+        />
+        <ion-list [hidden]="autocompleteItems.length == 0">
+          <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+            {{ item.description }}
+          </ion-item>
+        </ion-list>
+        <ion-button (click)="calculateAndDisplayRoute()"> Search </ion-button>
+        </div>
+          <div class="history">
+            <a href="#">
+              Recent Location History
+              <span>Current location address here.</span>
+              <img src="../../../assets/arrow-right.png" />
+            </a>
+            <a href="#">
+              Recent Location History
+              <span>Current location address here.</span>
+              <img src="../../../assets/arrow-right.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content> -->
+
+
+
+
+<ion-modal
+  [isOpen]="isShow"
+  [initialBreakpoint]="0.55"
+  [breakpoints]="[0, 0.25, 0.5, 0.75]"
+>
+  <ng-template>
+
+    <div class="ride-type">
+      <div class="rides">
+        <div class="rides-item">
+          <div class="rides-img"><img src="../../../assets/carX.png" /></div>
+          <div class="rides-title" (click)="hideData()">
+            
+            <span>5.25pm Dropoff</span>
+          </div>
+          <div class="rides-person">3 Left</div>
+          <div class="rides-amount">
+            BDT 
+          </div>
+        </div>
+        <div class="rides-item select">
+          <div class="rides-img">
+            <img src="../../../assets/carPremier.png" />
+          </div>
+          <div class="rides-title">
+            
+            <span>5.25pm Dropoff</span>
+          </div>
+          <div class="rides-person">3 Left</div>
+          <div class="rides-amount">
+            BDT 
+          </div>
+        </div>
+        <div class="rides-item">
+          <div class="rides-img">
+            <img src="../../../assets/carCompeer.png" />
+          </div>
+          <div class="rides-title">
+            
+            <span>5.25pm Dropoff</span>
+          </div>
+          <div class="rides-person">3 Left</div>
+          <div class="rides-amount">
+            BDT 
+          </div>
+        </div>
+        <div class="user-section">
+          <div class="user">
+            <div class="user-item select">
+              <img src="../../../assets/user1.png" />
+            </div>
+            <div class="user-item"><img src="../../../assets/user1.png" /></div>
+            <div class="user-item"><img src="../../../assets/user1.png" /></div>
+            <div class="user-item"><img src="../../../assets/user1.png" /></div>
+          </div>
+          <div class="payment-mode">
+            <span
+              >Personal <br />
+              Cash</span
+            >
+            <span class="taka">&#2547;</span>
+          </div>
+        </div>
+      </div>
+    
+      <!-- <div>
+        <a class="active" (click)="selectVehicleType('Moto')">
+          <img src="../../../assets/confirmTrip/bike.png" /><br />
+          <span>Moto</span>
+        </a>
+        <a class="" (click)="selectVehicleType('Car')"
+          ><img src="../../../assets/confirmTrip/car.png" /><br />
+          <span>CAR</span></a
+        >
+        <a class="" (click)="selectVehicleType('Cng')"
+          ><img src="../../../assets/confirmTrip/cng.png" /><br />
+          <span>CNG</span></a
+        >
+        <a class="" (click)="selectVehicleType('Micro')"
+          ><img src="../../../assets/confirmTrip/micro.png" /><br />
+          <span>MICRO</span></a
+        >
+      </div> -->
+      <div class="confirm-btn">
+        <div class="car-timer"><img src="../../../assets/car_timer.png" /></div>
+        <div class="btn">
+          <button (click)="confirmTrip()">Confirm Moto</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ion-modal>
+
+

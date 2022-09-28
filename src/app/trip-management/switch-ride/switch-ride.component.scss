@@ -1,0 +1,49 @@
+.register{
+    width:90%;
+    margin:auto;
+    text-align:center;
+  }
+  .gender{
+    border:1px solid #ff2b5d;
+    border-radius:5px;
+    width:100%;
+    padding:10px;
+    line-height:30px;
+    font-size:16px;
+    margin:5px 0; 
+    background:#fff;
+  }
+  .gender label{
+      font-size:13px;
+      padding-right:5px;
+      margin-left: 3px;
+  }
+  
+  .floating-label-group {
+      position: relative;
+      margin-top: 15px;
+      margin-bottom: 25px;
+  
+      .floating-label {
+          font-size: 16px;
+          color: #cccccc;
+          position: absolute;
+          pointer-events: none;
+          top: 15px;
+          left: 12px;
+          transition: all 0.1s ease;
+      }
+  
+      input:focus ~ .floating-label,
+      input:not(:focus):valid ~ .floating-label {
+          top: -15px;
+          bottom: 0px;
+          left: 0px;
+          font-size: 15px;
+          opacity: 1;
+          color: #fff;
+      }
+  }
+  
+    
+    

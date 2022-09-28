@@ -1,0 +1,37 @@
+<div class="finding-ride">
+	<div class="map">
+		<ion-content [fullscreen]="true">
+			<div class="map-wrapper">
+			  <!-- <div id="map_center">
+				<img src="assets/icon/location-marker.png" />
+			  </div> -->
+			  <div #map id="map"></div>
+			</div>
+		  </ion-content>
+	</div>
+	<div class="ride-info">
+		<div class="greetings">Good Morning, Sakhwath</div>
+		<div class="where-to">Where To?</div>
+		<div class="history">
+			<a href="#">
+				Recent Location History
+				<span>Current location address here.</span>
+				<img src="../../../assets/arrow-right.png" >
+			</a>
+			<a href="#">
+				Recent Location History
+				<span>Current location address here.</span>
+				<img src="../../../assets/arrow-right.png" >
+			</a>
+		</div>
+		<div class="ride-type">
+			<a href="#" [routerLink]="['/trip/ride-for-others']" class="active"><img src="../../../assets/confirmTrip/bike.png"><br><span>Moto</span></a>
+			<a href="#" class=""><img src="../../../assets/confirmTrip/car.png"><br><span>CAR</span></a>
+			<a href="#" class=""><img src="../../../assets/confirmTrip/cng.png"><br><span>CNG</span></a>
+			<a href="#" class=""><img src="../../../assets/confirmTrip/micro.png"><br><span>MICRO</span></a>
+		</div>
+    <div class="ride-type">
+      <button  [routerLink]="['/trip/finding-ride']">Confirm Moto</button>
+		</div>
+	</div>
+</div>

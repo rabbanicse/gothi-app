@@ -1,0 +1,42 @@
+<div class="bg1" *ngIf="!loginObject.status">
+  <div class="container login-page">
+    <img src="../../../assets/lets_ride.jpg" alt="" class="logo" /><br />
+    <h3>Go ahead with GOTHI</h3>
+    <form #phoneCheckForm="ngForm" class="containerForm" (ngSubmit)="checkPhoneNoStatus()">
+      <div class="contentForm">
+        <div class="floating-label-group">
+          <input type="text" id="nickname" #phoneNo="ngModel" [(ngModel)]="loginObject.PhoneNo" name="PhoneNo" name="PhoneNo" autocomplete="off" class="form-control" autocomplete="off" autofocus required />
+          <label class="floating-label">Enter Phone Number</label>
+        </div>
+        <button class="buttonLogin" type="submit">
+          <span>Continue</span>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="forgot" [routerLink]="['/user/forgot-password']">Forgot Password?</div>
+</div>
+
+<div class="bg1" *ngIf="loginObject.status">
+  <div class="container login-page">
+    <img src="../../../assets/lets_ride.jpg" alt="" class="logo" /><br />
+    <h3>Go ahead with GOTHI</h3>
+    <form #loginForm="ngForm" class="containerForm" (ngSubmit)="login()">
+      <div class="contentForm">
+        <div class="floating-label-group">
+          <input type="text" id="nickname" #phoneNo="ngModel" [(ngModel)]="loginObject.PhoneNo" name="PhoneNo" name="PhoneNo" autocomplete="off" class="form-control" autocomplete="off" autofocus required />
+          <label class="floating-label">Enter Phone Number</label>
+        </div>
+        <div class="floating-label-group">
+          <input type="password" id="nickname" #password="ngModel"
+          [(ngModel)]="loginRequest.password" name="password" autocomplete="off" class="form-control" autocomplete="off" autofocus required />
+          <label class="floating-label">Password</label>
+        </div>
+        <button class="buttonLogin" type="submit">
+          <span>Continue</span>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="forgot" [routerLink]="['/user/forgot-password']">Forgot Password?</div>
+</div>

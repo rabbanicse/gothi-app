@@ -1,0 +1,57 @@
+.finding-ride{
+	
+}
+.map img{
+	width:100%;
+}
+.ride-info{
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#fff;
+}
+
+.where-to{
+	padding:15px;
+	background:#071e47;
+	color:#fff;
+}
+.history a{
+	display:block;
+	background:url(/assets/location-blue.png) no-repeat 15px center;
+	padding:15px 15px 15px 60px;
+	color:#071e47;
+	text-decoration:none;
+	position:relative;
+	border-bottom:1px solid #ccc;
+	font-size:14px;
+	font-weight:600;
+}
+.history span{
+	display:block;
+	color:#666;
+	font-size:12px;
+	font-weight:400;
+}
+.history a img{
+	position:absolute;
+	right:20px;
+	top:20px;
+}
+
+
+#map_canvas {
+	width: 90%;
+	height: 80%;
+	border: 1px solid red;
+  }
+  
+  
+  #address {
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
+  }
+  
+ 

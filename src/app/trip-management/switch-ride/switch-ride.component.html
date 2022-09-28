@@ -1,0 +1,13 @@
+<div class="container register" *ngIf="!isShown">
+  <div>
+    <img src="../../assets/avatar.jpg" alt="">
+  </div>
+  <div class="form-title">
+    Ride Switch For
+  </div>
+  <div class="list">
+    <input type="text" placeholder="Mobile Number*" />
+    <input type="text" placeholder="Enter Name*" />
+  </div>
+  <button  [routerLink]="['/trip/confirm-moto']">Continue</button>
+</div>

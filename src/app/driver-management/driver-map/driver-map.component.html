@@ -1,0 +1,83 @@
+<div class="finding-ride">
+    <div class="map">
+      <ion-content [fullscreen]="true">
+        <div class="map-wrapper">
+          <div #map id="map"></div>
+        </div>
+      </ion-content>
+    </div>
+  
+    <div class="ride-info">
+      <div class="greetings">Good Morning, Sakhwath</div>
+      <div class="where-to">Where To?</div>
+      <div>
+      </div>
+  
+      <div class="history">
+        <a href="#">
+          Recent Location History
+          <span>Current location address here.</span>
+          <img src="../../../assets/arrow-right.png" />
+        </a>
+        <a href="#">
+          Recent Location History
+          <span>Current location address here.</span>
+          <img src="../../../assets/arrow-right.png" />
+        </a>
+      </div>
+      <div class="ride-type">
+        <a href="#" class="active"
+          ><img src="../../../assets/confirmTrip/bike.png" /><br /><span
+            >Moto</span
+          ></a
+        >
+        <a href="#" class=""
+          ><img src="../../../assets/confirmTrip/car.png" /><br /><span
+            >CAR</span
+          ></a
+        >
+        <a href="#" class=""
+          ><img src="../../../assets/confirmTrip/cng.png" /><br /><span
+            >CNG</span
+          ></a
+        >
+        <a href="#" class=""
+          ><img src="../../../assets/confirmTrip/micro.png" /><br /><span
+            >MICRO</span
+          ></a
+        >
+      </div>
+      <button>
+        Confirm
+      </button>
+    </div>
+  </div>
+  
+  <ion-modal>
+    <ng-template>
+      <div class="finding-ride">
+        <div class="ride-info">
+          <div class="where-to">
+              <input
+                type="text"
+                placeholder="Where To?"
+              />
+              <ion-button> Search </ion-button>
+            </div>
+          <div class="history">
+            <a href="#">
+              Recent Location History
+              <span>Current location address here.</span>
+              <img src="../../../assets/arrow-right.png" />
+            </a>
+            <a href="#">
+              Recent Location History
+              <span>Current location address here.</span>
+              <img src="../../../assets/arrow-right.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+  

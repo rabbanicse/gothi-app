@@ -1,0 +1,22 @@
+<div class="otp-input">
+  <div><img src="../../assets/OtpImage.png" alt="" /><br /><br /></div>
+  <div class="otp-text">
+    Enter 4 Digit OTP Code to <br />
+    send your phone
+  </div>
+  <div
+    class="input_otp"
+    *ngFor="let n of numbers; let i = index; trackBy: trackByIndex"
+  >
+    <input type="text" #txt1 maxlength="1" [(ngModel)]="numbers[i]" />
+  </div>
+  <div>
+    <a class="sendAgain">if you didn't received a code?</a>
+  </div>
+  <button *ngIf="forgotPass == false" class="verifyBtn" (click)="otpChcek()">
+    <span class="verifyBtnText">Verification</span>
+  </button>
+  <button *ngIf="forgotPass == true" class="verifyBtn" (click)="otpForgotPasswordCheck()">
+    <span class="verifyBtnText">Verify</span>
+  </button>
+</div>

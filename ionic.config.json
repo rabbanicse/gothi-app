@@ -1,0 +1,7 @@
+{
+  "name": "Gothi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
